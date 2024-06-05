@@ -6,16 +6,9 @@
 /*   By: aumartin <aumartin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:26:41 by aumartin          #+#    #+#             */
-/*   Updated: 2024/06/05 16:03:04 by aumartin         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:26:40 by aumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-    gnl_calloc :  Alloue de la mémoire et initialise chaque octet à \0.
-    gnl_cat : Concatène les chaînes de caractères + Alloue de la mémoire pour une nouvelle ligne qui combine current_line et buffer, copie les données et libère l'ancienne ligne.
-    gnl_strlen : Calcule la longueur de la chaîne de caractères.
-    gnl_memmove : Déplace les données dans current_line pour préparer la lecture de la prochaine ligne =  Alloue de la mémoire pour une nouvelle ligne contenant les données après le caractère de nouvelle ligne (\n), copie ces données et libère l'ancienne ligne.
-*/
 
 #include "get_next_line.h"
 #include <stdio.h>
@@ -57,7 +50,6 @@ char	*gnl_cat(char *current_line, char *buffer)
 	{
 		new_line[i] = current_line[i];
 		i++;
-		//printf("Dans gnl_cat, new_line: %s\n", new_line);
 	}
 	j = 0;
 	while (buffer[j])
