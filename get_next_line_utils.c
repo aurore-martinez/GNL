@@ -1,0 +1,116 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aumartin <aumartin@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/03 15:26:41 by aumartin          #+#    #+#             */
+/*   Updated: 2024/06/05 16:03:04 by aumartin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/*
+    gnl_calloc :  Alloue de la mémoire et initialise chaque octet à \0.
+    gnl_cat : Concatène les chaînes de caractères + Alloue de la mémoire pour une nouvelle ligne qui combine current_line et buffer, copie les données et libère l'ancienne ligne.
+    gnl_strlen : Calcule la longueur de la chaîne de caractères.
+    gnl_memmove : Déplace les données dans current_line pour préparer la lecture de la prochaine ligne =  Alloue de la mémoire pour une nouvelle ligne contenant les données après le caractère de nouvelle ligne (\n), copie ces données et libère l'ancienne ligne.
+*/
+
+#include "get_next_line.h"
+#include <stdio.h>
+
+char	*gnl_calloc(size_t size)
+{
+	char	*ptr;
+	size_t	i;
+
+	ptr = (char *)malloc(size);
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (i < size)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
+	return (ptr);
+}
+
+char	*gnl_cat(char *current_line, char *buffer)
+{
+	char	*new_line;
+	int		i;
+	int		j;
+
+	if (!current_line)
+	{
+		current_line = gnl_calloc(1);
+		if (!current_line)
+			return (NULL);
+	}
+	new_line = gnl_calloc(gnl_strlen(current_line) + gnl_strlen(buffer) + 1);
+	if (!new_line)
+		return (NULL);
+	i = 0;
+	while (current_line[i])
+	{
+		new_line[i] = current_line[i];
+		i++;
+		//printf("Dans gnl_cat, new_line: %s\n", new_line);
+	}
+	j = 0;
+	while (buffer[j])
+		new_line[i++] = buffer[j++];
+	free(current_line);
+	return (new_line);
+}
+
+int	gnl_strlen(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s && s[i])
+		i++;
+	return (i);
+}
+
+int	gnl_find_newline(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return (-1);
+	while (s[i])
+	{
+		if (s[i] == '\n')
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+char	*gnl_memmove(char *current_line)
+{
+	char	*new_line;
+	int		i;
+	int		j;
+
+	if (!current_line)
+		return (NULL);
+	i = 0;
+	while (current_line[i] && current_line[i] != '\n')
+		i++;
+	if (current_line[i] == '\n')
+		i++;
+	new_line = gnl_calloc(gnl_strlen(current_line + i) + 1);
+	if (!new_line)
+		return (NULL);
+	j = 0;
+	while (current_line[i])
+		new_line[j++] = current_line[i++];
+	free(current_line);
+	return (new_line);
+}
