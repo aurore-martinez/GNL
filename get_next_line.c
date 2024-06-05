@@ -6,7 +6,7 @@
 /*   By: aumartin <aumartin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:26:38 by aumartin          #+#    #+#             */
-/*   Updated: 2024/06/05 16:36:32 by aumartin         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:50:26 by aumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*get_next_line(int fd)
 
 char	*read_and_store(int *end_of_line, int fd, char *stored_line)
 {
-	char	*buffer;
+	char	*buffer; // reecrire sur la heap char	buffer[BUFFER_SIZE]
 	int		rd;
 
 	buffer = gnl_calloc(BUFFER_SIZE + 1);
@@ -87,7 +87,7 @@ char	*extract_line(int *eol, char *stored_line, char *line_to_return)
 	return (line_to_return);
 }
 
-/*
+
 #include <fcntl.h>
 #include <stdio.h>
 
@@ -110,4 +110,4 @@ int main(void)
 	close(fd);
 	return (0);
 }
- */
+
