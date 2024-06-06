@@ -6,12 +6,11 @@
 /*   By: aumartin <aumartin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:26:38 by aumartin          #+#    #+#             */
-/*   Updated: 2024/06/05 16:50:26 by aumartin         ###   ########.fr       */
+/*   Updated: 2024/06/06 12:28:43 by aumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 char	*get_next_line(int fd)
 {
@@ -40,7 +39,7 @@ char	*get_next_line(int fd)
 
 char	*read_and_store(int *end_of_line, int fd, char *stored_line)
 {
-	char	*buffer; // reecrire sur la heap char	buffer[BUFFER_SIZE]
+	char	*buffer;
 	int		rd;
 
 	buffer = gnl_calloc(BUFFER_SIZE + 1);
@@ -81,13 +80,13 @@ char	*extract_line(int *eol, char *stored_line, char *line_to_return)
 	if (*(stored_line + i) == '\n')
 	{
 		*(line_to_return + i++) = '\n';
-		*eol = i + 1;
+		*eol = i;
 	}
-	*(line_to_return + i + 1) = '\0';
+	*(line_to_return + i) = '\0';
 	return (line_to_return);
 }
 
-
+/*
 #include <fcntl.h>
 #include <stdio.h>
 
@@ -110,4 +109,4 @@ int main(void)
 	close(fd);
 	return (0);
 }
-
+ */
