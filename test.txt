@@ -1,5 +1,0 @@
-Debut du fichier
-Coucou Aurore,
-Comment vas-tu aujourd'hui ?
-Ca va bien merci et toi blablablablablablablablablablablablablablablabla
-Fin du fichier.
