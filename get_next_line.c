@@ -6,7 +6,7 @@
 /*   By: aumartin <aumartin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:26:38 by aumartin          #+#    #+#             */
-/*   Updated: 2024/06/06 12:28:43 by aumartin         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:00:04 by aumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*read_and_store(int *end_of_line, int fd, char *stored_line)
 	{
 		rd = read(fd, buffer, BUFFER_SIZE);
 		if (rd == -1)
-			return (free(buffer), NULL);
+			return (free(stored_line), free(buffer), NULL);
 		buffer[rd] = '\0';
 		if (rd > 0)
 		{
