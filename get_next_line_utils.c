@@ -6,12 +6,11 @@
 /*   By: aumartin <aumartin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:26:41 by aumartin          #+#    #+#             */
-/*   Updated: 2024/06/05 16:26:40 by aumartin         ###   ########.fr       */
+/*   Updated: 2024/06/07 11:08:22 by aumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 char	*gnl_calloc(size_t size)
 {
