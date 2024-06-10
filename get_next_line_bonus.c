@@ -10,6 +10,8 @@
 /*																			*/
 /* ************************************************************************** */
 
+/* static t_gnl	*get_gnl_data(t_gnl **gnl_list) */
+
 #include "get_next_line_bonus.h"
 
 t_gnl	*get_gnl_data(t_gnl **gnl_list)
