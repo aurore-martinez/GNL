@@ -6,7 +6,7 @@
 /*   By: aumartin <aumartin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:26:34 by aumartin          #+#    #+#             */
-/*   Updated: 2024/06/06 12:21:43 by aumartin         ###   ########.fr       */
+/*   Updated: 2024/06/10 13:51:49 by aumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE	0
+#  define BUFFER_SIZE	42
 # endif
 
 # include <stdlib.h>
@@ -32,4 +32,5 @@ char	*gnl_cat(char *current_line, char *buffer);
 int		gnl_strlen(char *s);
 int		gnl_find_newline(char *s);
 char	*gnl_memmove(char *current_line);
+
 #endif
