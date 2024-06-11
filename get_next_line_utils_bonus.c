@@ -22,10 +22,7 @@ char	*gnl_calloc(size_t size)
 		return (NULL);
 	i = 0;
 	while (i < size)
-	{
-		ptr[i] = '\0';
-		i++;
-	}
+		ptr[i++] = '\0';
 	return (ptr);
 }
 
@@ -43,7 +40,7 @@ char	*gnl_cat(char *current_line, char *buffer)
 	}
 	new_line = gnl_calloc(gnl_strlen(current_line) + gnl_strlen(buffer) + 1);
 	if (!new_line)
-		return (NULL);
+		return (free(current_line), NULL);
 	i = 0;
 	while (current_line[i])
 	{

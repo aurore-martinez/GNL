@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aumartin <aumartin@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/11 11:56:42 by aumartin          #+#    #+#             */
+/*   Updated: 2024/06/11 11:56:59 by aumartin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
 
-int main(void)
+int	main(void)
 {
-	int fd;
-	char *line;
+	int	fd;
+	char	*line;
 
 	fd = open("test.txt", O_RDONLY);
 	if (fd == -1)
