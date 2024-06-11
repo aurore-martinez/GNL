@@ -6,7 +6,7 @@
 /*   By: aumartin <aumartin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:26:41 by aumartin          #+#    #+#             */
-/*   Updated: 2024/06/10 18:11:47 by aumartin         ###   ########.fr       */
+/*   Updated: 2024/06/11 11:09:51 by aumartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*gnl_cat(char *current_line, char *buffer)
 	}
 	new_line = gnl_calloc(gnl_strlen(current_line) + gnl_strlen(buffer) + 1);
 	if (!new_line)
-		return (NULL);
+		return (free(current_line), NULL);
 	i = 0;
 	while (current_line[i])
 	{
